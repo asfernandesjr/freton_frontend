@@ -1,3 +1,53 @@
+<script setup lang='ts'>
+
+const tableFields = ref([
+  {
+    key: 'name',
+    label: 'Nome'
+  },
+  {
+    key: 'birth',
+    label: 'Data de nascimento'
+  },
+  {
+    key: 'dl_categories',
+    label: 'Categorias CNH'
+  },
+  {
+    key: 'dl_validity_date',
+    label: 'Validade da CNH'
+  },
+]);
+
+const tableItems = ref([
+  {
+    name: 'Fonseca Silva',
+    birth: '15/07/1992',
+    dl_categories: 'A, B e C',
+    dl_validity_date: '04/05/2030'
+  },
+  {
+    name: 'Fonseca Silva',
+    birth: '15/07/1992',
+    dl_categories: 'A, B e C',
+    dl_validity_date: '04/05/2030'
+  },
+  {
+    name: 'Fonseca Silva',
+    birth: '15/07/1992',
+    dl_categories: 'A, B e C',
+    dl_validity_date: '04/05/2030'
+  },
+  {
+    name: 'Fonseca Silva',
+    birth: '15/07/1992',
+    dl_categories: 'A, B e C',
+    dl_validity_date: '04/05/2030'
+  }
+]);
+
+</script>
+
 <template>
   <div>
     <div class='flex justify-between pb-6'>
@@ -8,13 +58,8 @@
         Adicionar motorista
       </f-button>
     </div>
-    <div class='flex justify-between pb-6'>
-      <h4 class='text-3xl font-semibold'>
-        Lista de motoristas
-      </h4>
-      <f-button>
-        Adicionar motorista2
-      </f-button>
-    </div>
+    <f-table
+      :items='tableItems'
+      :fields='tableFields' />
   </div>
 </template>
