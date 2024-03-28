@@ -1,5 +1,7 @@
 <script setup lang='ts'>
 
+
+const showModal = ref(false);
 const tableFields = ref([
   {
     key: 'name',
@@ -54,12 +56,15 @@ const tableItems = ref([
       <h4 class='text-3xl font-semibold'>
         Lista de motoristas
       </h4>
-      <f-button>
+      <f-button @click='showModal = true'>
         Adicionar motorista
       </f-button>
     </div>
     <f-table
       :items='tableItems'
       :fields='tableFields' />
+    <f-modal v-model='showModal'>
+      <div>YEAH YEAH!</div>
+    </f-modal>
   </div>
 </template>
