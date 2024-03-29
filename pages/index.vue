@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 
 
+const page = ref(1);
 const showModal = ref(false);
 const tableFields = ref([
   {
@@ -51,7 +52,7 @@ const tableItems = ref([
 </script>
 
 <template>
-  <div>
+  <div class='flex flex-col gap-6'>
     <div class='flex justify-between pb-6'>
       <h4 class='text-3xl font-semibold'>
         Lista de motoristas
@@ -63,29 +64,66 @@ const tableItems = ref([
     <f-table
       :items='tableItems'
       :fields='tableFields' />
+    <div class='flex justify-end'>
+      <f-pagination
+        v-model='page'
+        :pages='10' />
+    </div>
     <f-modal
       v-model='showModal'
-      title='Cadastrar motorista'
+      title='Registrar motorista'
       description='Preenchar o formulário com os dados do motorista'
       ok-title='Registrar motorista'>
-      <div class='flex flex-col gap-4'>
-        <div class=''>
-          <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
-            Informações pessoais
-          </h3>
-          <div class='flex flex-col gap-2'>
-            <label>Nome</label>
-            <f-input class='block w-full' />
+      <div class='flex flex-col gap-6'>
+        <div class='flex flex-col gap-4'>
+          <div class=''>
+            <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
+              Informações pessoais
+            </h3>
+            <div class='flex flex-col gap-2'>
+              <label>Nome</label>
+              <f-input class='block w-full' />
+            </div>
+          </div>
+          <div class='flex gap-4 w-full'>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Sexo</label>
+              <f-input class='block w-full' />
+            </div>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Data de nascimento</label>
+              <f-input class='block w-full' />
+            </div>
           </div>
         </div>
-        <div class='flex gap-4 w-full'>
-          <div class='flex flex-col gap-2 flex-grow'>
-            <label>Sexo</label>
-            <f-input class='block w-full' />
+        <div class='flex flex-col gap-4'>
+          <div class=''>
+            <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
+              Carteira de Habilitação
+            </h3>
           </div>
-          <div class='flex flex-col gap-2 flex-grow'>
-            <label>Data de nascimento</label>
-            <f-input class='block w-full' />
+          <div class='flex gap-4 w-full'>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Registro</label>
+              <f-input
+                class='block w-full'
+                placeholder='xxxxxxxxxxx' />
+            </div>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Emissão</label>
+              <f-input class='block w-full' />
+            </div>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Validade</label>
+              <f-input class='block w-full' />
+            </div>
+          </div>
+          <div class='flex gap-4 w-full'>
+            <div class='flex flex-col gap-2 flex-grow'>
+              <label>Escolha as categorias</label>
+              <f-select />
+              <f-input class='block w-full' />
+            </div>
           </div>
         </div>
       </div>

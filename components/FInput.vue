@@ -1,9 +1,12 @@
 <script setup lang='ts'>
+const value = defineModel<any>();
 
 </script>
 
 <template>
   <input
-    class='bg-gray-100 border border-gray-400 outline-none rounded px-4 py-2 text-gray-400 duration-200
-  focus:border-gray-600 focus:text-gray-600 focus:ring-2 focus:ring-sky-300'>
+    v-model='value'
+    class='bg-transparent border border-gray-400 text-gray-600 outline-none rounded px-3 py-[0.375rem]
+      duration-150 ease-in-out
+    focus:border-sky-600 focus:text-gray-600 focus:ring-2 focus:ring-sky-300'>
 </template>

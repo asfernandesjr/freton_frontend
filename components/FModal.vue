@@ -5,6 +5,7 @@ interface Props {
   description?: string,
   okTitle?: string,
   cancelTitle?: string,
+  bodyWrapperClasses?: string,
 }
 
 withDefaults(defineProps<Props>(), {
@@ -13,6 +14,7 @@ withDefaults(defineProps<Props>(), {
   description: 'Modal description',
   okTitle: 'Criar',
   cancelTitle: 'Cancelar',
+  bodyWrapperClasses: 'px-6'
 });
 
 
@@ -26,10 +28,10 @@ const show = defineModel<boolean>();
     <!-- Backdrop -->
     <div
       v-if='show'
-      class='inset-0 absolute bg-black/50 flex items-center justify-center'
+      class='inset-0 absolute bg-black/50 z-50'
       @click.self='show = false'>
       <!-- Modal/dialog -->
-      <div class='bg-gray-50 border border-gray-500 w-[800px] rounded-lg shadow-lg'>
+      <div class='bg-gray-50 border border-gray-500 w-[800px] rounded-lg shadow-lg mx-auto my-8'>
         <!-- Header -->
         <div class='p-6 flex justify-between items-start'>
           <div class='flex flex-col gap-2'>
@@ -47,7 +49,7 @@ const show = defineModel<boolean>();
           </div>
         </div>
         <!-- Body -->
-        <div class='p-6'>
+        <div :class='bodyWrapperClasses'>
           <slot />
         <!-- Footer -->
         </div>
