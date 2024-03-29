@@ -63,8 +63,32 @@ const tableItems = ref([
     <f-table
       :items='tableItems'
       :fields='tableFields' />
-    <f-modal v-model='showModal'>
-      <div>YEAH YEAH!</div>
+    <f-modal
+      v-model='showModal'
+      title='Cadastrar motorista'
+      description='Preenchar o formulário com os dados do motorista'
+      ok-title='Registrar motorista'>
+      <div class='flex flex-col gap-4'>
+        <div class=''>
+          <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
+            Informações pessoais
+          </h3>
+          <div class='flex flex-col gap-2'>
+            <label>Nome</label>
+            <f-input class='block w-full' />
+          </div>
+        </div>
+        <div class='flex gap-4 w-full'>
+          <div class='flex flex-col gap-2 flex-grow'>
+            <label>Sexo</label>
+            <f-input class='block w-full' />
+          </div>
+          <div class='flex flex-col gap-2 flex-grow'>
+            <label>Data de nascimento</label>
+            <f-input class='block w-full' />
+          </div>
+        </div>
+      </div>
     </f-modal>
   </div>
 </template>
