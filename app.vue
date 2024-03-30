@@ -20,7 +20,7 @@ const breadcrumbItems = ref([
       <div class='container p-0'>
         <f-breadcrumb :items='breadcrumbItems' />
       </div>
-      <div class='container bg-gray-50 border border-t-0 border-gray-600 rounded-b p-6 shadow-lg'>
+      <div class='container bg-gray-50 border border-t-0 border-gray-400 rounded-b p-6 shadow-lg'>
         <NuxtPage />
       </div>
     </div>

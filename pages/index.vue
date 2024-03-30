@@ -49,6 +49,16 @@ const tableItems = ref([
   }
 ]);
 
+const dlCategories = ref([
+  { text: 'A', value: 1 },
+  { text: 'B', value: 2 },
+  { text: 'C', value: 3 },
+  { text: 'D', value: 4 },
+  { text: 'D', value: 4 },
+  { text: 'D', value: 4 },
+  { text: 'D', value: 4 },
+]);
+
 </script>
 
 <template>
@@ -121,7 +131,7 @@ const tableItems = ref([
           <div class='flex gap-4 w-full'>
             <div class='flex flex-col gap-2 flex-grow'>
               <label>Escolha as categorias</label>
-              <f-select />
+              <f-select :items='dlCategories' />
               <f-input class='block w-full' />
             </div>
           </div>

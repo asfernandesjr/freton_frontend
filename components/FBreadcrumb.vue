@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class='p-6 bg-gray-100 border border-gray-600 rounded-t'>
+  <div class='p-6 bg-gray-100 border border-gray-400 rounded-t'>
     <div class='flex items-center gap-2'>
       <div
         v-for='(item, idx) in items'
