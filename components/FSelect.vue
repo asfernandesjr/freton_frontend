@@ -59,24 +59,14 @@ function focusOutHandler() {
 function test () {
   console.log('test');
 }
-
-function test2() {
-  console.log('test2');
-}
-
-const swapBind = ref(false);
-
 </script>
 
 <template>
   <div
-    v-click-out='swapBind ? test : test2'
+    v-click-out='test'
     class='relative border rounded
     border-gray-400 text-gray-600 duration-150 ease-in-out
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
-    <input
-      v-model='swapBind'
-      type='checkbox'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
         <SelectedBadge text='Teste' />
@@ -89,9 +79,11 @@ const swapBind = ref(false);
         <SelectedBadge text='Teste' />
         <SelectedBadge text='Teste' />
         <input
-          class='flex-grow outline-none'>
+          class='flex-grow outline-none'
+          @focusin='_showItems = true'>
       </div>
-      <button class='self-stretch flex items-center px-3'>
+      <button
+        class='self-stretch flex items-center px-3'>
         <Icon name='material-symbols:arrow-drop-down' />
       </button>
     </div>
