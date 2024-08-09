@@ -11,7 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const variantClasses: { [key: string] : string } = {
   primary: 'bg-blue-500 text-gray-100 enabled:hover:bg-blue-600 enabled:hover:text-gray-200 enabled:active:bg-blue-700 enabled:active:ring-blue-300',
-  secondary: 'bg-none border border-gray-800 text-black enabled:hover:bg-gray-800 enabled:hover:text-gray-200 enabled:active:bg-black enabled:active:ring-gray-300'
+  secondary: 'bg-none border border-gray-600 text-black enabled:hover:bg-gray-600 enabled:hover:text-gray-200 enabled:active:bg-black enabled:active:ring-gray-300'
 };
 
 const computedClass = computed(() => {

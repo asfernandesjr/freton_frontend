@@ -3,13 +3,22 @@ import { Icon } from '#components';
 
 interface Props {
   items?: any[],
+  value?: null | any | any[],
+  multiple?: boolean,
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
   items: () => ([]),
+  value: null,
+  multiple: false,
 });
 
 const selected = defineModel<Props['items']>();
+
+const emit = defineEmits(['selected']);
+
+const _showItems = ref(false);
+const _hideTimeout = ref<null | ReturnType<typeof setTimeout>>(null);
 
 
 const SelectedBadgeCloseIcon = () => h(
@@ -37,16 +46,37 @@ const SelectedBadge = ({ text }: { text: string }) => h(
 );
 
 function itemClick(item: Props['items']) {
-  console.log(item);
+  console.log('aa');
+  const val = props.multiple ? [...props.value, item] : item;
+  console.log(val);
+  emit('selected', val);
 }
+
+function focusOutHandler() {
+  console.log(document.activeElement);
+}
+
+function test () {
+  console.log('test');
+}
+
+function test2() {
+  console.log('test2');
+}
+
+const swapBind = ref(false);
 
 </script>
 
 <template>
   <div
-    class='group relative border rounded
+    v-click-out='swapBind ? test : test2'
+    class='relative border rounded
     border-gray-400 text-gray-600 duration-150 ease-in-out
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
+    <input
+      v-model='swapBind'
+      type='checkbox'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
         <SelectedBadge text='Teste' />
@@ -58,13 +88,16 @@ function itemClick(item: Props['items']) {
         <SelectedBadge text='Teste' />
         <SelectedBadge text='Teste' />
         <SelectedBadge text='Teste' />
-        <input class='flex-grow outline-none'>
+        <input
+          class='flex-grow outline-none'>
       </div>
       <button class='self-stretch flex items-center px-3'>
         <Icon name='material-symbols:arrow-drop-down' />
       </button>
     </div>
-    <div class='hidden group-focus-within:block absolute top-full mt-[0.125rem] w-full z-[100]'>
+    <div
+      :class="_showItems ? 'block' : 'hidden'"
+      class='absolute top-full mt-[0.125rem] w-full z-[100]'>
       <ul class='rounded bg-gray-50 drop-shadow-lg'>
         <li
           v-for='item in items'

@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-
+import Inputmask from 'inputmask';
 
 const page = ref(1);
 const showModal = ref(false);
@@ -59,6 +59,28 @@ const dlCategories = ref([
   { text: 'D', value: 4 },
 ]);
 
+const setupMasks = () => {
+  const birthDateInput = document.getElementById('birth-date-input');
+  if (birthDateInput && !birthDateInput.inputmask) {
+    Inputmask(
+      '99/99/9999',
+      {
+        inputFormat: 'dd/mm/yyyy',
+        placeholder: 'dd/mm/yyyy',
+        tabThrough: true,
+        groupSeparator: '/'
+      },
+    ).mask(birthDateInput);
+  }
+};
+
+onUpdated(() => {
+  setupMasks();
+});
+
+onMounted(() => {
+  setupMasks();
+});
 </script>
 
 <template>
@@ -102,7 +124,9 @@ const dlCategories = ref([
             </div>
             <div class='flex flex-col gap-2 flex-grow'>
               <label>Data de nascimento</label>
-              <f-input class='block w-full' />
+              <f-input
+                id='birth-date-input'
+                class='block w-full' />
             </div>
           </div>
         </div>
