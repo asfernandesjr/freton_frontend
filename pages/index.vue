@@ -1,7 +1,7 @@
 <script setup lang='ts'>
 import Inputmask from 'inputmask';
 
-const page = ref(1);
+const page = ref(3);
 const showModal = ref(false);
 const tableFields = ref([
   {
@@ -99,7 +99,7 @@ onMounted(() => {
     <div class='flex justify-end'>
       <f-pagination
         v-model='page'
-        :pages='10' />
+        :pages='15' />
     </div>
     <f-modal
       v-model='showModal'

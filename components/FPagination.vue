@@ -11,30 +11,43 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['update:modelValue']);
 
+const defaultClasses = ref('flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer text-gray-500 \
+ border-gray-300 bg-white hover:bg-gray-200');
+
+
+const getPageClasses = (page: number | string) => {
+  let classes = defaultClasses.value;
+
+  page = typeof page === 'string' ? Number.parseInt(page) : page;
+  
+  classes += page === props.modelValue
+    ? ' text-slate-600 bg-slate-200 hover:!bg-slate-300 hover:text-slate-700'
+    : ' hover:text-gray-700';
+
+  return classes;
+};
 
 const computedPages = computed(() => {
   const items = [];
-  
-  if (props.modelValue > 3) {
-    items.push(1);
-    items.push('...');
-    items.push(props.modelValue - 1);
-  } else {
-    items.push(1);
-    items.push(2);
-  }
-  items.push(props.modelValue);
-  if (props.modelValue < props.pages - 2) {
-    items.push(props.modelValue + 1);
-    items.push('...');
-    items.push(props.pages);
-  } else {
-    items.push(props.pages - 1);
-    items.push(props.pages);
-  }
 
+  if (props.pages <= 9) {
+    for(let i = 1; i <= props.pages; i++) {
+      items.push(i);
+      console.log(props.modelValue, props.pages, items);
+    }
+  } else {
+    if (props.modelValue <= 5) {
+      for(let i = 1; i <= 5; i++) {
+        items.push(i);
+      }
+      items.push('6', '...');
+    }
+    for(let i = props.pages - 1; i <= props.pages; i++) {
+      items.push(String(i));
+    }
+  }
+  console.log(props.modelValue, props.pages, items);
   return items;
-
 });
 
 function previous() {
@@ -55,8 +68,7 @@ function next() {
   <ul class='inline-flex text-sm'>
     <li>
       <a
-        class='flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer
-        text-gray-500 border-gray-300 bg-white hover:bg-gray-100'
+        :class='defaultClasses'
         @click='previous'>
         <span class=''>Anterior</span>
       </a>
@@ -65,19 +77,14 @@ function next() {
       v-for='page in computedPages'
       :key='page'>
       <a
-        class='flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer
-        text-gray-500 border-gray-300 bg-white hover:bg-gray-100 hover:text-gray-700'
-        :class="page === modelValue
-          ? 'text-blue-600 bg-blue-50 hover:bg-blue-100 hover:text-blue-700'
-          : ''"
+        :class='getPageClasses(page)'
         @click="emit('update:modelValue', modelValue)">
         {{ page }}
       </a>
     </li>
     <li>
       <a
-        class='flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer
-        text-gray-500 border-gray-300 bg-white hover:bg-gray-100'
+        :class='defaultClasses'
         @click='next'>
         <span class=''>Próximo</span>
       </a>

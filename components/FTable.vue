@@ -34,12 +34,12 @@ withDefaults(defineProps<Props>(), {
           <th
             v-for='field in fields'
             :key='field.key'
-            class='first:rounded-tl-lg last:rounded-tr-lg p-4 bg-gray-200'>
+            class='first:rounded-tl-lg last:rounded-tr-lg p-3 bg-gray-200'>
             {{ field.label }}
           </th>
           <th
             style='width: 0.1%;'
-            class='first:rounded-tl-lg last:rounded-tr-lg p-4 bg-gray-200 cursor-pointer'>
+            class='first:rounded-tl-lg last:rounded-tr-lg p-3 bg-gray-200 cursor-pointer'>
             <Icon
               name='material-symbols:more-vert'
               size='1.5rem' />
@@ -53,12 +53,12 @@ withDefaults(defineProps<Props>(), {
           <td
             v-for='field in fields'
             :key='field.key'
-            class='border-t border-gray-400 p-4'>
+            class='border-t border-gray-400 p-3'>
             {{ item[field.key] || emptyLabel }}
           </td>
           <td
             style='width: 0.1%;'
-            class='border-t border-gray-400 p-4 cursor-pointer'>
+            class='border-t border-gray-400 p-3 cursor-pointer'>
             <Icon
               name='material-symbols:more-vert'
               size='1.5rem' />

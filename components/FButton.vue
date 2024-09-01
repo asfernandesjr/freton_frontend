@@ -24,7 +24,7 @@ const computedClass = computed(() => {
 <template>
   <button
     :class='computedClass'
-    class='disabled:opacity-75 px-4 py-2 rounded-md duration-200 enabled:active:ring-2 active:outline-none'>
+    class='disabled:opacity-75 px-3 py-1.5 rounded-md duration-200 enabled:active:ring-2 active:outline-none'>
     <slot />
   </button>
 </template>
