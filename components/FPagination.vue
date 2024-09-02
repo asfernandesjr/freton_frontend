@@ -21,7 +21,7 @@ const getPageClasses = (page: number | string) => {
   page = typeof page === 'string' ? Number.parseInt(page) : page;
   
   classes += page === props.modelValue
-    ? ' text-slate-600 bg-slate-200 hover:!bg-slate-300 hover:text-slate-700'
+    ? ' text-white !bg-blue-500 border-blue-400'
     : ' hover:text-gray-700';
 
   return classes;
@@ -30,21 +30,28 @@ const getPageClasses = (page: number | string) => {
 const computedPages = computed(() => {
   const items = [];
 
-  if (props.pages <= 9) {
+  if (props.pages <= 7) {
     for(let i = 1; i <= props.pages; i++) {
       items.push(i);
       console.log(props.modelValue, props.pages, items);
     }
   } else {
-    if (props.modelValue <= 5) {
+    if (props.modelValue <= 4) {
       for(let i = 1; i <= 5; i++) {
-        items.push(i);
+        items.push(String(i));
       }
-      items.push('6', '...');
+      items.push('...', String(props.pages));
+      return items;
     }
-    for(let i = props.pages - 1; i <= props.pages; i++) {
-      items.push(String(i));
+    items.push('1', '...');
+    if (props.modelValue >= props.pages - 4) {
+      for(let i = props.pages - 5; i <= props.pages; i++) {
+        items.push(String(i));
+      }
+      return items;
     }
+    items.push(props.modelValue - 1, props.modelValue, props.modelValue + 1);
+    items.push('...', String(props.pages));
   }
   console.log(props.modelValue, props.pages, items);
   return items;
