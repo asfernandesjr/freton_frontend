@@ -57,17 +57,22 @@ const computedPages = computed(() => {
   return items;
 });
 
-function previous() {
+const previous = () => {
   if (props.modelValue > 1) {
     emit('update:modelValue', props.modelValue - 1);
   }
-}
+};
 
-function next() {
+const next = () => {
   if (props.modelValue < props.pages) {
     emit('update:modelValue', props.modelValue + 1);
   }
-}
+};
+
+const selectPage = (page: number | string) => {
+  page = typeof page === 'string' ? Number.parseInt(page) : page;
+  emit('update:modelValue', page);
+};
 
 </script>
 
@@ -85,7 +90,7 @@ function next() {
       :key='page'>
       <a
         :class='getPageClasses(page)'
-        @click="emit('update:modelValue', modelValue)">
+        @click='selectPage(page)'>
         {{ page }}
       </a>
     </li>
