@@ -104,7 +104,7 @@ onMounted(() => {
     <f-modal
       v-model='showModal'
       title='Registrar motorista'
-      description='Preenchar o formulário com os dados do motorista'
+      description='Preencha o formulário com os dados do motorista'
       ok-title='Registrar motorista'>
       <div class='flex flex-col gap-6'>
         <div class='flex flex-col gap-4'>

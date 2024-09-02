@@ -33,7 +33,6 @@ const computedPages = computed(() => {
   if (props.pages <= 7) {
     for(let i = 1; i <= props.pages; i++) {
       items.push(i);
-      console.log(props.modelValue, props.pages, items);
     }
   } else {
     if (props.modelValue <= 4) {
@@ -53,7 +52,6 @@ const computedPages = computed(() => {
     items.push(props.modelValue - 1, props.modelValue, props.modelValue + 1);
     items.push('...', String(props.pages));
   }
-  console.log(props.modelValue, props.pages, items);
   return items;
 });
 
