@@ -59,6 +59,8 @@ const dlCategories = ref([
   { text: 'D', value: 4 },
 ]);
 
+const categories = ref([]);
+
 const setupMasks = () => {
   const birthDateInput = document.getElementById('birth-date-input');
   if (birthDateInput && !birthDateInput.inputmask) {
@@ -155,7 +157,9 @@ onMounted(() => {
           <div class='flex gap-4 w-full'>
             <div class='flex flex-col gap-2 flex-grow'>
               <label>Escolha as categorias</label>
-              <f-select :items='dlCategories' />
+              <f-select
+                v-model='categories'
+                :items='dlCategories' />
               <f-input class='block w-full' />
             </div>
           </div>

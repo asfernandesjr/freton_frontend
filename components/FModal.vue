@@ -58,8 +58,8 @@ const show = defineModel<boolean>();
           <!-- Body -->
           <div :class='bodyWrapperClasses'>
             <slot />
-            <!-- Footer -->
           </div>
+          <!-- Footer -->
           <div class='p-6 gap-4 flex justify-end items-center'>
             <f-button variant='secondary'>
               {{ cancelTitle }}

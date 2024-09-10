@@ -68,7 +68,12 @@ const next = () => {
 };
 
 const selectPage = (page: number | string) => {
-  page = typeof page === 'string' ? Number.parseInt(page) : page;
+  if (typeof page === 'string') {
+    if (page === '...') {
+      return;
+    }
+    page = Number.parseInt(page);
+  }
   emit('update:modelValue', page);
 };
 

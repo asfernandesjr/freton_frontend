@@ -3,23 +3,36 @@ import { Icon } from '#components';
 
 interface Props {
   items?: any[],
-  value?: null | any | any[],
   multiple?: boolean,
+  labelKey?: string,
+  valueKey?: string,
 }
 
 const props = withDefaults(defineProps<Props>(), {
   items: () => ([]),
-  value: null,
   multiple: false,
+  labelKey: 'text',
+  valueKey: 'value'
 });
 
-const selected = defineModel<Props['items']>();
+const modelValue = defineModel<any | any[]>();
 
-const emit = defineEmits(['selected']);
+// const emit = defineEmits(['selected']);
 
 const _showItems = ref(false);
-const _hideTimeout = ref<null | ReturnType<typeof setTimeout>>(null);
+// const _hideTimeout = ref<null | ReturnType<typeof setTimeout>>(null);
 
+function itemClick(item: Props['items']) {
+  const val = props.multiple ? [...modelValue, item] : item;
+  console.log('aa');
+  console.log(val);
+  modelValue.value = val;
+  // emit('update:modelValue', val);
+}
+
+function clickOutHandler() {
+  _showItems.value = false;
+}
 
 const SelectedBadgeCloseIcon = () => h(
   Icon,
@@ -45,39 +58,25 @@ const SelectedBadge = ({ text }: { text: string }) => h(
   ),
 );
 
-function itemClick(item: Props['items']) {
-  console.log('aa');
-  const val = props.multiple ? [...props.value, item] : item;
-  console.log(val);
-  emit('selected', val);
-}
-
-function focusOutHandler() {
-  console.log(document.activeElement);
-}
-
-function test () {
-  console.log('test');
-}
 </script>
 
 <template>
   <div
-    v-click-out='test'
+    v-click-out='clickOutHandler'
     class='relative border rounded
     border-gray-400 text-gray-600 duration-150 ease-in-out
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
-        <SelectedBadge text='Teste' />
+        <SelectedBadge
+          v-for='selectedItem in modelValue'
+          :key='selectedItem[props.valueKey]'
+          :text='selectedItem[props.labelKey]' />
+        <div
+          v-for='selectedItem in modelValue'
+          :key='selectedItem[props.valueKey]'>
+          {{ selectedItem }} - ({{ selectedItem[props.labelKey] }})
+        </div>
         <input
           class='flex-grow outline-none'
           @focusin='_showItems = true'>
