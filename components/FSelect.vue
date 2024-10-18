@@ -15,20 +15,40 @@ const props = withDefaults(defineProps<Props>(), {
   valueKey: 'value'
 });
 
-const modelValue = defineModel<any | any[]>();
+const modelValue = defineModel<any | any[]>({
+  get(val) {
+    if (isProxy(val)) {
+      return toRaw(val);
+    }
+    return val;
+  }
+});
 
 // const emit = defineEmits(['selected']);
 
 const _showItems = ref(false);
 // const _hideTimeout = ref<null | ReturnType<typeof setTimeout>>(null);
 
-function itemClick(item: Props['items']) {
-  const val = props.multiple ? [...modelValue, item] : item;
-  console.log('aa');
-  console.log(val);
-  modelValue.value = val;
+function itemClick(item: any) {
+  console.log(item);
+  if (Array.isArray(modelValue.value) && item && !modelValue.value.includes(item[props.valueKey])) {
+    console.log(modelValue.value);
+    const val = props.multiple ? [...modelValue.value, item] : item;
+    console.log('aa');
+    console.log(val);
+    modelValue.value = val;
+    console.log(modelValue.value);
+  }
+  console.log(modelValue.value);
   // emit('update:modelValue', val);
 }
+
+const _items = computed(() => {
+  if (isProxy(props.items)) {
+    return toRaw(props.items);
+  }
+  return props.items;
+});
 
 function clickOutHandler() {
   _showItems.value = false;
@@ -68,15 +88,16 @@ const SelectedBadge = ({ text }: { text: string }) => h(
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
-        <SelectedBadge
-          v-for='selectedItem in modelValue'
-          :key='selectedItem[props.valueKey]'
-          :text='selectedItem[props.labelKey]' />
-        <div
-          v-for='selectedItem in modelValue'
-          :key='selectedItem[props.valueKey]'>
-          {{ selectedItem }} - ({{ selectedItem[props.labelKey] }})
-        </div>
+        <template
+          v-if='props.multiple && Array.isArray(modelValue)'>
+          <selected-badge
+            v-for='selectedItem in modelValue'
+            :key='selectedItem[props.valueKey]'
+            :text='selectedItem[props.labelKey]' />
+        </template>
+        <selected-badge
+          v-else-if='modelValue && !Array.isArray(modelValue)'
+          :text='modelValue[props.labelKey]' />
         <input
           class='flex-grow outline-none'
           @focusin='_showItems = true'>
@@ -91,8 +112,8 @@ const SelectedBadge = ({ text }: { text: string }) => h(
       class='absolute top-full mt-[0.125rem] w-full z-[100]'>
       <ul class='rounded bg-gray-50 drop-shadow-lg'>
         <li
-          v-for='item in items'
-          :key='item.value'
+          v-for='item in _items'
+          :key='item[props.valueKey]'
           class='px-4 py-1 duration-100 ease-in-out
           hover:bg-sky-100 hover:border hover:border-sky-500
           border-y border-y-transparent
@@ -100,7 +121,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
           first:rounded-t first:border-t-gray-400
           last:rounded-b last:border-b-gray-400'
           @click='itemClick(item)'>
-          {{ item.text }}
+          {{ item[props.labelKey] }}
         </li>
       </ul>
     </div>
