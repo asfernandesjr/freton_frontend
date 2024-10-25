@@ -16,8 +16,8 @@ withDefaults(defineProps<Props>(), {
 <template>
   <a
     :class='[active
-               ? "bg-blue-500 text-gray-50" 
-               : "text-gray-300 hover:text-gray-100 hover:bg-gray-600",
+               ? "bg-blue-500 text-zinc-50" 
+               : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-700",
              $attrs.class]'
     class='flex p-2 gap-3 items-center rounded duration-200 cursor-pointer'>
     <Icon

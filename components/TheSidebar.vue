@@ -1,5 +1,5 @@
 <template>
-  <div class='relative h-lvh top-0 left-0 w-[300px] bg-gray-800 flex flex-col justify-between px-4 py-6 shadow-lg'>
+  <div class='relative h-lvh top-0 left-0 w-[300px] bg-zinc-800 flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='flex flex-col gap-2'>
       <sidebar-item
         icon-name='material-symbols:chart-data-outline'

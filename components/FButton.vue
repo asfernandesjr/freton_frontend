@@ -10,8 +10,8 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const variantClasses: { [key: string] : string } = {
-  primary: 'bg-blue-500 border border-blue-400 text-gray-100 enabled:hover:bg-blue-600 enabled:hover:text-gray-200 enabled:active:bg-blue-700 enabled:active:ring-blue-300',
-  secondary: 'bg-none border border-gray-600 text-black enabled:hover:bg-gray-600 enabled:hover:text-gray-200 enabled:active:bg-gray-800 enabled:active:ring-gray-300'
+  primary: 'bg-blue-500 border border-blue-500 text-zinc-100 enabled:hover:bg-blue-600 enabled:hover:text-zinc-200 enabled:active:bg-blue-700 enabled:active:ring-blue-400',
+  secondary: 'bg-none dark:text-zinc-300 border border-zinc-600 enabled:hover:bg-zinc-600 enabled:hover:text-zinc-200 enabled:active:bg-zinc-800 enabled:active:ring-zinc-300'
 };
 
 const computedClass = computed(() => {

@@ -1,6 +1,8 @@
 <script setup lang='ts'>
 import Inputmask from 'inputmask';
 
+const loading = ref(false);
+
 const page = ref(3);
 const showModal = ref(false);
 const tableFields = ref([
@@ -88,7 +90,7 @@ onMounted(() => {
 <template>
   <div class='flex flex-col gap-6'>
     <div class='flex justify-between pb-6'>
-      <h4 class='text-3xl font-semibold'>
+      <h4 class='text-3xl font-semibold dark:text-zinc-200'>
         Lista de motoristas
       </h4>
       <f-button @click='showModal = true'>
@@ -105,26 +107,28 @@ onMounted(() => {
     </div>
     <f-modal
       v-model='showModal'
-      title='Registrar motorista'
       description='Preencha o formulário com os dados do motorista'
-      ok-title='Registrar motorista'>
+      ok-title='Registrar motorista'
+      :loading='loading'
+      title='Registrar motorista'
+      @ok='loading = !loading'>
       <div class='flex flex-col gap-6'>
         <div class='flex flex-col gap-4'>
-          <div class=''>
-            <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
+          <div>
+            <h3 class='text-xl text-zinc-400 border-b-2 border-zinc-400 mb-4 pb-2'>
               Informações pessoais
             </h3>
-            <div class='flex flex-col gap-2'>
+            <div class='text-zinc-100 flex flex-col gap-2'>
               <label>Nome</label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Sexo</label>
               <f-input class='block w-full' />
             </div>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Data de nascimento</label>
               <f-input
                 id='birth-date-input'
@@ -134,33 +138,32 @@ onMounted(() => {
         </div>
         <div class='flex flex-col gap-4'>
           <div class=''>
-            <h3 class='text-xl text-gray-400 border-b-2 border-gray-400 mb-4 pb-2'>
+            <h3 class='text-xl text-zinc-400 border-b-2 border-zinc-400 mb-4 pb-2'>
               Carteira de Habilitação
             </h3>
           </div>
           <div class='flex gap-4 w-full'>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Registro</label>
               <f-input
                 class='block w-full'
                 placeholder='xxxxxxxxxxx' />
             </div>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Emissão</label>
               <f-input class='block w-full' />
             </div>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Validade</label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
-            <div class='flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
               <label>Escolha as categorias</label>
               <f-select
                 v-model='categories'
                 :items='dlCategories' />
-              <f-input class='block w-full' />
             </div>
           </div>
         </div>

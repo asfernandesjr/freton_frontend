@@ -11,8 +11,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits(['update:modelValue']);
 
-const defaultClasses = ref('flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer text-gray-500 \
- border-gray-300 bg-white hover:bg-gray-200');
+const defaultClasses = ref('flex items-center justify-center px-3 py-1 border duration-150 cursor-pointer text-zinc-300 \
+ dark:border-zinc-700 dark:bg-zinc-800 hover:bg-zinc-700');
 
 
 const getPageClasses = (page: number | string) => {
@@ -21,8 +21,8 @@ const getPageClasses = (page: number | string) => {
   page = typeof page === 'string' ? Number.parseInt(page) : page;
   
   classes += page === props.modelValue
-    ? ' text-white !bg-blue-500 border-blue-400'
-    : ' hover:text-gray-700';
+    ? ' text-white !bg-zinc-600 border-zinc-600'
+    : ' hover:text-zinc-200';
 
   return classes;
 };
