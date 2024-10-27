@@ -73,3 +73,10 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+Task list
+- [ ] Finish F-Modal
+    - [ ] Close icon padding
+    - [ ] Footer buttons actions
+- [ ] Navbar for small devices
