@@ -14,13 +14,13 @@ const breadcrumbItems = ref([
 </script>
 
 <template>
-  <div class='flex bg-zinc-900 font-sans'>
-    <TheSidebar />
-    <div class='block w-full m-4'>
-      <div class='container p-0'>
+  <div class='flex flex-col min-h-lvh lg:flex-row bg-zinc-900 font-sans'>
+    <the-navbar />
+    <div class='flex-1 my-2 mx-2 lg:mx-4'>
+      <div class='md:container !p-0'>
         <f-breadcrumb :items='breadcrumbItems' />
       </div>
-      <div class='container bg-zinc-800 border border-t-0 border-zinc-700 rounded-b p-6'>
+      <div class='md:container bg-zinc-800 border border-t-0 border-zinc-700 rounded-b p-6'>
         <NuxtPage />
       </div>
     </div>
@@ -28,3 +28,7 @@ const breadcrumbItems = ref([
     <!-- <NuxtWelcome /> -->
   </div>
 </template>
+
+1.5 + 1 + 1.5
+1.5 + 1.5
+24 + 16 + 24
