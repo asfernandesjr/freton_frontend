@@ -45,7 +45,7 @@ const cancel = () => {
       <!-- Backdrop -->
       <div
         v-if='show'
-        class='inset-0 absolute bg-black/50 z-50'
+        class='inset-0 absolute bg-black/50 z-30'
         @click.self='show = false'>
         <!-- Modal/dialog -->
         <div class='relative overflow-hidden bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-700 border-zinc-500 w-[800px] rounded-lg shadow mx-auto my-8'>

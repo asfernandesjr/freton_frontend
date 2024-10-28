@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-const showSidebar = ref(true);
+const showSidebar = ref(false);
 
 const logout = () => {
   console.log('logout');
@@ -11,16 +11,17 @@ const toggleSidebar = () => {
 };
 
 </script>
+<!-- class='fixed transition-all duration-150 w-full lg:h-lvh overflow-hidden top-0 left-0 bg-zinc-800 border-b lg:border-r lg:border-b-0 border-zinc-700 flex flex-row lg:flex-col justify-between px-3 py-4 shadow-lg'> -->
 
 <template>
   <!-- the width is defined as the <navbar padding> + <item padding> + <icon width> -->
-  <nav
+  <aside
     :class="[
-      showSidebar ? 'lg:w-64' : 'lg:!w-16'
+      showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
     ]"
-    class='relative w-full lg:h-lvh overflow-hidden top-0 left-0 bg-zinc-800 flex flex-row lg:flex-col justify-between px-3 py-4 shadow-lg'>
+    class='z-50 fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 bg-zinc-800 border-r border-zinc-700 flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
-      <ul class='space-x-2 lg:space-x-0 lg:space-y-2'>
+      <ul class='space-y-2'>
         <navbar-item
           icon-name='material-symbols:chart-data-outline'
           to='/'>
@@ -39,10 +40,10 @@ const toggleSidebar = () => {
         </navbar-item>
       </ul>
     </div>
-    <div class='flex lg:flex-col gap-4 overflow-hidden'>
-      <ul class='space-x-2 lg:space-x-0 lg:space-y-2'>
+    <div class='flex flex-col gap-4 overflow-hidden'>
+      <ul class='space-y-2'>
         <navbar-item
-          class='text-red-500 hover:text-red-500 hover:bg-red-300 bg-opacity-50 hover:bg-opacity-50'
+          variant='danger'
           icon-classes='rotate-180'
           icon-name='material-symbols:logout'
           @click='logout()'>
@@ -62,5 +63,22 @@ const toggleSidebar = () => {
         </navbar-item>
       </ul>
     </div>
-  </nav>
+    <Teleport to='body'>
+      <div
+        v-show='showSidebar'
+        class='inset-0 absolute bg-black/50 z-40'
+        @click='showSidebar = false' />
+      <navbar class='fixed lg:hidden bg-zinc-800 border-b border-zinc-700 w-full px-2 py-1'>
+        <f-button
+          variant='secondary'
+          class='!p-2 !rounde-lg !border-0'
+          @click='toggleSidebar()'>
+          <Icon
+            class='text-zinc-400'
+            name='material-symbols:menu'
+            size='1.5rem' />
+        </f-button>
+      </navbar>
+    </Teleport>
+  </aside>
 </template>

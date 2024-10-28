@@ -2,15 +2,27 @@
 interface Props {
   iconName?: string,
   iconClasses?: string,
-  active?: boolean
+  active?: boolean,
+  variant?: 'primary' | 'danger',
 }
 
 const props = withDefaults(defineProps<Props>(), {
   iconName: 'material-symbols:insert-chart-sharp',
   iconClasses: '',
   active: false,
+  variant: 'primary',
 });
 
+const variantClasses: { [key: string]: string } = {
+  primary: 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-700 active:bg-blue-500 active:text-zinc-50',
+  danger: 'text-red-500 hover:bg-zinc-700  active:text-zinc-100 active:bg-red-400'
+};
+
+const rootTagClass = computed(() => {
+  const classes = variantClasses[props.variant];
+
+  return classes;
+});
 
 const iconClasses = computed(() => {
   const defaultClasses = 'shrink-0';
@@ -18,24 +30,22 @@ const iconClasses = computed(() => {
 });
 
 const componentTag = computed(() => {
-  return 'nuxt-link'; // Alternativaly: 'a'; or 'nuxt-link' : 'span';
+  return 'nuxt-link'; // Alternativaly: 'a'; or 'to' in attrs ? 'nuxt-link' : 'span';
 });
 </script>
 
 <template>
-  <li class='inline-block lg:list-item'>
+  <li
+    :class='rootTagClass'
+    class='list-item rounded-md duration-200 cursor-pointer'>
     <component
       :is='componentTag'
-      :class='[active
-                 ? "bg-blue-500 text-zinc-50" 
-                 : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-700",
-               $attrs.class]'
-      class='flex p-2 gap-3 items-center rounded-md duration-200 cursor-pointer'>
+      class='flex p-2 gap-3 items-center'>
       <Icon
         :name='iconName'
         size='1.5rem'
         :class='iconClasses' />
-      <span class='hidden lg:inline'>
+      <span>
         <slot />
       </span>
     </component>
