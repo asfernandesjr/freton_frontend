@@ -19,7 +19,8 @@ const toggleSidebar = () => {
     :class="[
       showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
     ]"
-    class='z-50 fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 bg-zinc-800 border-r border-zinc-700 flex flex-col justify-between px-3 py-4 shadow-lg'>
+    class='z-40 fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0
+      text-zinc-700 dark:text-zinc-100 bg-zinc-100 border-zinc-300 dark:bg-zinc-800 border-r dark:border-zinc-700 flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
       <ul class='space-y-2'>
         <navbar-item
@@ -50,8 +51,9 @@ const toggleSidebar = () => {
           Deslogar
         </navbar-item>
         <navbar-item
-          icon-name='material-symbols:toggle-off'>
-          Tema
+          class='!p-0'
+          content-class='!p-0'>
+          <f-dark-mode-toggle />
         </navbar-item>
       </ul>
       <ul>
@@ -66,15 +68,15 @@ const toggleSidebar = () => {
     <Teleport to='body'>
       <div
         v-show='showSidebar'
-        class='inset-0 absolute bg-black/50 z-40'
+        class='inset-0 absolute bg-black/50 z-30'
         @click='showSidebar = false' />
-      <navbar class='fixed lg:hidden bg-zinc-800 border-b border-zinc-700 w-full px-2 py-1'>
+      <navbar class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-300 dark:bg-zinc-800 border-b dark:border-zinc-700 w-full px-2 py-1'>
         <f-button
           variant='secondary'
           class='!p-2 !rounde-lg !border-0'
           @click='toggleSidebar()'>
           <Icon
-            class='text-zinc-400'
+            class='text-zinc-700 dark:text-zinc-400'
             name='material-symbols:menu'
             size='1.5rem' />
         </f-button>
