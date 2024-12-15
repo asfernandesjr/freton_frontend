@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
   title: 'Default title',
   description: 'Modal description',
   okTitle: 'Criar',
-  loading: false,
+  loading: true,
   cancelTitle: 'Cancelar',
   bodyWrapperClasses: 'px-6'
 });
@@ -36,10 +36,10 @@ const cancel = () => {
 <template>
   <Teleport to='body'>
     <Transition
-      enter-active-class='duration-200 ease-out'
+      enter-active-class='duration-150 ease-out'
       enter-from-class='transform opacity-0 -tranzinc-y-6'
       enter-to-class='opacity-100'
-      leave-active-class='duration-200 ease-in'
+      leave-active-class='duration-150 ease-in'
       leave-from-class='opacity-100'
       leave-to-class='transform opacity-0 -tranzinc-y-6'>
       <!-- Backdrop -->
@@ -48,25 +48,26 @@ const cancel = () => {
         class='inset-0 absolute bg-black/50 z-50'
         @click.self='show = false'>
         <!-- Modal/dialog -->
-        <div class='relative overflow-hidden bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-700 border-zinc-500 w-[800px] rounded-lg shadow mx-auto my-8'>
+        <div class='relative overflow-hidden bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-600 border-zinc-400 w-[800px] rounded-lg shadow mx-auto my-8'>
           <div
             v-if='loading'
-            class='absolute bg-black/50 h-full w-full'>
+            class='absolute bg-black/50 text-zinc-900 dark:text-white h-full w-full'>
             <Icon
-              name='material-symbols:close'
+              class='cursor-pointer'
+              name='material-symbols:replay'
               @click='show = false' />
           </div>
           <!-- Header -->
-          <div class='p-6 flex justify-between items-start'>
+          <div class='p-6 flex justify-between items-start text-zinc-800'>
             <div class='flex flex-col gap-2'>
-              <h2 class='font-bold text-2xl text-zinc-100'>
+              <h2 class='font-bold text-2xl dark:text-zinc-100'>
                 {{ title }}
               </h2>
-              <p class='text-zinc-300'>
+              <p class='text-zinc-400'>
                 {{ description }}
               </p>
             </div>
-            <div class='text-zinc-300'>
+            <div class='cursor-pointer'>
               <Icon
                 name='material-symbols:close'
                 @click='show = false' />

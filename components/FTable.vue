@@ -18,50 +18,33 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class='flex flex-col gap-4'>
-    <div class='flex justify-between items-center'>
-      <f-button class=''>
-        Procurar
-      </f-button>
-      <f-button class=''>
-        Filtros
-      </f-button>
-    </div>
-  
-    <table class='table-auto border-separate border-spacing-0 text-left border dark:border-zinc-700 dark:text-zinc-300 rounded-lg'>
-      <thead>
+  <div class='relative overflow-auto'>
+    <table
+      class='w-full text-left border rounded
+        text-zinc-500 border-zinc-400
+        dark:border-zinc-600 dark:text-zinc-400'>
+      <thead class='text-xs uppercase border-b border-zinc-400 bg-zinc-50 dark:bg-zinc-700 dark:border-zinc-600'>
         <tr>
           <th
             v-for='field in fields'
             :key='field.key'
-            class='first:rounded-tl-lg last:rounded-tr-lg p-3 dark:bg-zinc-700'>
+            class='py-3 px-6'>
             {{ field.label }}
-          </th>
-          <th
-            style='width: 0.1%;'
-            class='first:rounded-tl-lg last:rounded-tr-lg p-3 bg-zinc-700 cursor-pointer'>
-            <Icon
-              name='material-symbols:more-vert'
-              size='1.5rem' />
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
           v-for='item in items'
-          :key='item.key'>
+          :key='item.key'
+          class='font-medium duration-150
+            bg-zinc-50 border-b border-zinc-400 hover:bg-zinc-300
+            dark:bg-zinc-800 dark:border-zinc-600 dark:hover:bg-zinc-700'>
           <td
             v-for='field in fields'
             :key='field.key'
-            class='border-t border-zinc-700 p-3'>
+            class='py-4 px-6 whitespace-nowrap'>
             {{ item[field.key] || emptyLabel }}
-          </td>
-          <td
-            style='width: 0.1%;'
-            class='border-t border-zinc-700 p-3 cursor-pointer'>
-            <Icon
-              name='material-symbols:more-vert'
-              size='1.5rem' />
           </td>
         </tr>
       </tbody>

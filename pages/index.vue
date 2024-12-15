@@ -115,21 +115,21 @@ onMounted(() => {
       <div class='flex flex-col gap-6'>
         <div class='flex flex-col gap-4'>
           <div>
-            <h3 class='text-xl text-zinc-400 border-b-2 border-zinc-400 mb-4 pb-2'>
+            <f-section-line>
               Informações pessoais
-            </h3>
+            </f-section-line>
             <div class='text-zinc-100 flex flex-col gap-2'>
-              <label>Nome</label>
+              <f-label>Nome</f-label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Sexo</label>
+              <f-label>Sexo</f-label>
               <f-input class='block w-full' />
             </div>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Data de nascimento</label>
+              <f-label>Data de nascimento</f-label>
               <f-input
                 id='birth-date-input'
                 class='block w-full' />
@@ -138,29 +138,29 @@ onMounted(() => {
         </div>
         <div class='flex flex-col gap-4'>
           <div class=''>
-            <h3 class='text-xl text-zinc-400 border-b-2 border-zinc-400 mb-4 pb-2'>
+            <f-section-line>
               Carteira de Habilitação
-            </h3>
+            </f-section-line>
           </div>
           <div class='flex gap-4 w-full'>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Registro</label>
+              <f-label>Registro</f-label>
               <f-input
                 class='block w-full'
                 placeholder='xxxxxxxxxxx' />
             </div>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Emissão</label>
+              <f-label>Emissão</f-label>
               <f-input class='block w-full' />
             </div>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Validade</label>
+              <f-label>Validade</f-label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
             <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
-              <label>Escolha as categorias</label>
+              <f-label>Escolha as categorias</f-label>
               <f-select
                 v-model='categories'
                 :items='dlCategories' />

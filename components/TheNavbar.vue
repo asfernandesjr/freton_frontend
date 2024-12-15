@@ -11,7 +11,7 @@ const toggleSidebar = () => {
 };
 
 </script>
-<!-- class='fixed transition-all duration-150 w-full lg:h-lvh overflow-hidden top-0 left-0 bg-zinc-800 border-b lg:border-r lg:border-b-0 border-zinc-700 flex flex-row lg:flex-col justify-between px-3 py-4 shadow-lg'> -->
+<!-- class='fixed transition-all duration-150 w-full lg:h-lvh overflow-hidden top-0 left-0 bg-zinc-800 border-b lg:border-r lg:border-b-0 border-zinc-400 flex flex-row lg:flex-col justify-between px-3 py-4 shadow-lg'> -->
 
 <template>
   <!-- the width is defined as the <navbar padding> + <item padding> + <icon width> -->
@@ -19,8 +19,9 @@ const toggleSidebar = () => {
     :class="[
       showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
     ]"
-    class='z-40 fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0
-      text-zinc-700 dark:text-zinc-100 bg-zinc-100 border-zinc-300 dark:bg-zinc-800 border-r dark:border-zinc-700 flex flex-col justify-between px-3 py-4 shadow-lg'>
+    class='z-[100] fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 
+      text-zinc-700 dark:text-zinc-100 bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-r 
+      dark:border-zinc-600 flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
       <ul class='space-y-2'>
         <navbar-item
@@ -70,7 +71,7 @@ const toggleSidebar = () => {
         v-show='showSidebar'
         class='inset-0 absolute bg-black/50 z-30'
         @click='showSidebar = false' />
-      <navbar class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-300 dark:bg-zinc-800 border-b dark:border-zinc-700 w-full px-2 py-1'>
+      <navbar class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-b dark:border-zinc-600 w-full px-2 py-1'>
         <f-button
           variant='secondary'
           class='!p-2 !rounde-lg !border-0'

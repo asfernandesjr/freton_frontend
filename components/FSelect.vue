@@ -84,7 +84,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
   <div
     v-click-out='clickOutHandler'
     class='relative border rounded dark:bg-zinc-700
-    border-zinc-600 text-zinc-600 duration-150 ease-in-out
+    border-zinc-400 text-zinc-600 duration-150 ease-in-out
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
@@ -114,7 +114,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
         <li
           v-for='item in _items'
           :key='item[props.valueKey]'
-          class='px-4 py-1 duration-100 ease-in-out
+          class='px-4 py-1 duration-150 ease-in-out
           hover:bg-zinc-700 hover:border hover:border-zinc-600
           border-y border-y-transparent text-zinc-300
           border-x dark:border-x-zinc-700
