@@ -83,8 +83,8 @@ const SelectedBadge = ({ text }: { text: string }) => h(
 <template>
   <div
     v-click-out='clickOutHandler'
-    class='relative border rounded dark:bg-zinc-700
-    border-zinc-400 text-zinc-600 duration-150 ease-in-out
+    class='relative border rounded dark:bg-zinc-600
+    border-zinc-400 text-zinc-500 duration-150 ease-in-out
     focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
@@ -99,7 +99,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
           v-else-if='modelValue && !Array.isArray(modelValue)'
           :text='modelValue[props.labelKey]' />
         <input
-          class='flex-grow outline-none dark:bg-zinc-700'
+          class='flex-grow outline-none dark:bg-zinc-600'
           @focusin='_showItems = true'>
       </div>
       <button
@@ -110,16 +110,16 @@ const SelectedBadge = ({ text }: { text: string }) => h(
     <div
       :class="_showItems ? 'block' : 'hidden'"
       class='absolute top-full mt-[0.125rem] w-full z-[100]'>
-      <ul class='rounded dark:bg-zinc-700 drop-shadow-lg'>
+      <ul class='rounded dark:bg-zinc-600 drop-shadow-lg'>
         <li
           v-for='item in _items'
           :key='item[props.valueKey]'
           class='px-4 py-1 duration-150 ease-in-out
-          hover:bg-zinc-700 hover:border hover:border-zinc-600
+          hover:bg-zinc-600 hover:border hover:border-zinc-600
           border-y border-y-transparent text-zinc-300
-          border-x dark:border-x-zinc-700
-          first:rounded-t first:border-t-zinc-700
-          last:rounded-b last:border-b-zinc-700'
+          border-x dark:border-x-zinc-600
+          first:rounded-t first:border-t-zinc-600
+          last:rounded-b last:border-b-zinc-600'
           @click='itemClick(item)'>
           {{ item[props.labelKey] }}
         </li>

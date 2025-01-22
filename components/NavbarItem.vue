@@ -16,9 +16,9 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const variantClasses: { [key: string]: string } = {
-  primary: 'dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-zinc-700 dark:active:bg-blue-500 dark:active:text-zinc-50 ' + 
-    'text-zinc-700 hover:text-zinc-900 hover:bg-zinc-200 active:bg-zinc-300 active:text-zinc-90',
-  danger: 'text-red-700 dark:hover:bg-zinc-700 dark:active:bg-red-300/25 hover:bg-zinc-300 dark:active:text-red-600 active:text-red-600 active:bg-red-300'
+  primary: 'dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-zinc-600 dark:active:bg-blue-500 dark:active:text-zinc-50 ' + 
+    'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-200 active:bg-zinc-300 active:text-zinc-90',
+  danger: 'text-red-700 dark:hover:bg-zinc-600 dark:active:bg-red-300/25 hover:bg-zinc-300 dark:active:text-red-600 active:text-red-600 active:bg-red-300'
 };
 
 const rootTagClass = computed(() => {
@@ -44,7 +44,7 @@ const componentTag = computed(() => {
     <component
       :is='componentTag'
       :class='contentClass'
-      class='flex p-2 gap-3 items-center'>
+      class='flex p-2 gap-3 items-center whitespace-nowrap'>
       <Icon
         v-if='iconName'
         :name='iconName'

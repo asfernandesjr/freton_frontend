@@ -58,16 +58,16 @@ const cancel = () => {
               @click='show = false' />
           </div>
           <!-- Header -->
-          <div class='p-6 flex justify-between items-start text-zinc-800'>
+          <div class='p-6 flex justify-between items-start text-zinc-900'>
             <div class='flex flex-col gap-2'>
               <h2 class='font-bold text-2xl dark:text-zinc-100'>
                 {{ title }}
               </h2>
-              <p class='text-zinc-400'>
+              <p class='text-zinc-500 dark:text-zinc-400'>
                 {{ description }}
               </p>
             </div>
-            <div class='cursor-pointer'>
+            <div class='cursor-pointer text-black dark:text-white'>
               <Icon
                 name='material-symbols:close'
                 @click='show = false' />

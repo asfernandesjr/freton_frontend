@@ -23,7 +23,7 @@ withDefaults(defineProps<Props>(), {
       class='w-full text-left border rounded
         text-zinc-500 border-zinc-400
         dark:border-zinc-600 dark:text-zinc-400'>
-      <thead class='text-xs uppercase border-b border-zinc-400 bg-zinc-50 dark:bg-zinc-700 dark:border-zinc-600'>
+      <thead class='text-xs uppercase border-b border-zinc-400 bg-zinc-50 dark:bg-zinc-600 dark:border-zinc-600'>
         <tr>
           <th
             v-for='field in fields'
@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
           :key='item.key'
           class='font-medium duration-150
             bg-zinc-50 border-b border-zinc-400 hover:bg-zinc-300
-            dark:bg-zinc-800 dark:border-zinc-600 dark:hover:bg-zinc-700'>
+            dark:bg-zinc-800 dark:border-zinc-600 dark:hover:bg-zinc-600'>
           <td
             v-for='field in fields'
             :key='field.key'

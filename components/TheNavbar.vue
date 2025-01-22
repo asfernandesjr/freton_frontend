@@ -1,5 +1,7 @@
 <script setup lang="ts">
 
+const { toggleDarkMode, darkModeSettings } = useDarkMode();
+
 const showSidebar = ref(false);
 
 const logout = () => {
@@ -20,8 +22,8 @@ const toggleSidebar = () => {
       showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
     ]"
     class='z-[100] fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 
-      text-zinc-700 dark:text-zinc-100 bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-r 
-      dark:border-zinc-600 flex flex-col justify-between px-3 py-4 shadow-lg'>
+      text-zinc-500 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800
+      flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
       <ul class='space-y-2'>
         <navbar-item
@@ -52,9 +54,10 @@ const toggleSidebar = () => {
           Deslogar
         </navbar-item>
         <navbar-item
-          class='!p-0'
-          content-class='!p-0'>
-          <f-dark-mode-toggle />
+          icon-classes='rotate-180'
+          :icon-name='darkModeSettings.iconName'
+          @click='toggleDarkMode()'>
+          Alternar modo de cor
         </navbar-item>
       </ul>
       <ul>
@@ -77,7 +80,7 @@ const toggleSidebar = () => {
           class='!p-2 !rounde-lg !border-0'
           @click='toggleSidebar()'>
           <Icon
-            class='text-zinc-700 dark:text-zinc-400'
+            class='text-zinc-500 dark:text-zinc-100'
             name='material-symbols:menu'
             size='1.5rem' />
         </f-button>

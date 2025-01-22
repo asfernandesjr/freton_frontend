@@ -12,8 +12,8 @@ const props = withDefaults(defineProps<Props>(), {
 const variantClasses: { [key: string] : string } = {
   primary: 'bg-blue-500 border border-blue-500 text-zinc-100 enabled:hover:bg-blue-600 enabled:hover:text-zinc-200 enabled:active:bg-blue-700 enabled:active:ring-blue-400',
   secondary: 'border duration-150 active:ring-2 ' +
-    'text-zinc-500 bg-zinc-100 border-zinc-400 hover:text-zinc-100 hover:bg-zinc-600 hover:border-zinc-600 ' +
-    'active:border-zinc-400 active:text-zinc-500 active:bg-zinc-100 active:ring-zinc-600'
+    'text-zinc-500 dark:text-zinc-300 bg-zinc-100 dark:hover:text-zinc-100 dark:bg-zinc-800 border-zinc-400 hover:bg-zinc-200 dark:hover:bg-zinc-700 ' +
+    'hover:text-zinc-600 active:border-zinc-400 active:text-zinc-600 active:bg-zinc-100 active:ring-zinc-600 dark:active:bg-zinc-800 dark:active:text-zinc-100'
 };
 
 const computedClass = computed(() => {

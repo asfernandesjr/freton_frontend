@@ -28,7 +28,7 @@ withDefaults(defineProps<Props>(), {
           v-if='idx !== items.length - 1'
           name='material-symbols:chevron-right'
           size='1.25rem'
-          class='dark:text-zinc-600' />
+          class='dark:text-zinc-500' />
       </div>
     </div>
   </div>

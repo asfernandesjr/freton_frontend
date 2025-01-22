@@ -28,7 +28,3 @@ const breadcrumbItems = ref([
     <!-- <NuxtWelcome /> -->
   </div>
 </template>
-
-1.5 + 1 + 1.5
-1.5 + 1.5
-24 + 16 + 24
