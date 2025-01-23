@@ -21,7 +21,7 @@ const toggleSidebar = () => {
     :class="[
       showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
     ]"
-    class='z-[100] fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 
+    class='z-[100] fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 border-r border-zinc-300 dark:border-r-0 
       text-zinc-500 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800
       flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
@@ -73,8 +73,8 @@ const toggleSidebar = () => {
       <div
         v-show='showSidebar'
         class='inset-0 absolute bg-black/50 z-30'
-        @click='showSidebar = false' />
-      <navbar class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-b dark:border-zinc-600 w-full px-2 py-1'>
+        @click='toggleSidebar()' />
+      <nav class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-b dark:border-zinc-600 w-full px-2 py-1'>
         <f-button
           variant='secondary'
           class='!p-2 !rounde-lg !border-0'
@@ -84,7 +84,7 @@ const toggleSidebar = () => {
             name='material-symbols:menu'
             size='1.5rem' />
         </f-button>
-      </navbar>
+      </nav>
     </Teleport>
   </aside>
 </template>

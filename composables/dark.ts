@@ -6,7 +6,7 @@ export const useDarkMode = () => {
     
   const darkModeSettings = computed(() => {
     return {
-      iconName: isDark ? 'material-symbols:clear-day-rounded' : 'material-symbols-light:mode-night'
+      iconName: isDark.value ? 'material-symbols:clear-day-rounded' : 'material-symbols-light:mode-night'
     };
   });
 

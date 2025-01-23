@@ -2,7 +2,6 @@
 import Inputmask from 'inputmask';
 
 const loading = ref(false);
-
 const page = ref(3);
 const showModal = ref(false);
 const tableFields = ref([
