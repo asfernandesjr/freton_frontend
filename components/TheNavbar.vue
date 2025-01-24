@@ -50,7 +50,7 @@ const toggleSidebar = () => {
           variant='danger'
           icon-classes='rotate-180'
           icon-name='material-symbols:logout'
-          @click='logout()'>
+          to='/login'>
           Deslogar
         </navbar-item>
         <navbar-item

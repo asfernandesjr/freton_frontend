@@ -5,6 +5,10 @@ definePageMeta({
   layout: false
 });
 
+const login = async () => {
+  await navigateTo('/');
+};
+
 </script>
 
 <template>
@@ -23,7 +27,9 @@ definePageMeta({
       <h4 class='text-center text-2xl font-normal dark:text-zinc-200'>
         Login
       </h4>
-      <div class='flex flex-col gap-4'>
+      <form
+        class='flex flex-col gap-4'
+        @submit.prevent='login()'>
         <div class='text-zinc-100 flex flex-col gap-2'>
           <f-label>Usuário</f-label>
           <f-input class='block w-full' />
@@ -35,12 +41,16 @@ definePageMeta({
             class='block w-full' />
         </div>
         <div class='flex justify-end gap-2 items-center'>
-          <a
-            class='text-sky-600 hover:text-sky-400'
-            href='/register'>Registrar</a>
-          <f-button>Entrar</f-button>
+          <f-button
+            class='block w-full'
+            type='submit'>
+            Entrar
+          </f-button>
         </div>
-      </div>
+        <small class='text-sm text-red-500'>
+          Esse sistema possui acesso restrito e medidas legais serão tomadas em casos de acesso não autorizado.
+        </small>
+      </form>
     </div>
   </div>
 </template>

@@ -33,7 +33,7 @@ const iconClasses = computed(() => {
 });
 
 const componentTag = computed(() => {
-  return 'nuxt-link'; // Alternativaly: 'a'; or 'to' in attrs ? 'nuxt-link' : 'span';
+  return defineNuxtLink({}); // Alternativaly: 'a'; or 'to' in attrs ? 'nuxt-link' : 'span';
 });
 </script>
 
@@ -44,6 +44,7 @@ const componentTag = computed(() => {
     <component
       :is='componentTag'
       :class='contentClass'
+      :to='$attrs.to ?? undefined'
       class='flex p-2 gap-3 items-center whitespace-nowrap'>
       <Icon
         v-if='iconName'
