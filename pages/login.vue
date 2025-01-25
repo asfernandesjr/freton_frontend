@@ -24,17 +24,17 @@ const login = async () => {
           size='1.25rem'
           @click='toggleDarkMode' />
       </div>
-      <h4 class='text-center text-2xl font-normal dark:text-zinc-200'>
+      <h4 class='mb-4 text-center text-2xl font-normal dark:text-zinc-200'>
         Login
       </h4>
       <form
         class='flex flex-col gap-4'
         @submit.prevent='login()'>
-        <div class='text-zinc-100 flex flex-col gap-2'>
+        <div class='text-zinc-100 flex flex-col gap-1'>
           <f-label>Usuário</f-label>
           <f-input class='block w-full' />
         </div>
-        <div class='text-zinc-100 flex flex-col gap-2'>
+        <div class='text-zinc-100 flex flex-col gap-1'>
           <f-label>Senha</f-label>
           <f-input
             type='password'

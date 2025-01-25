@@ -111,23 +111,23 @@ onMounted(() => {
       :loading='loading'
       title='Registrar motorista'
       @ok='loading = !loading'>
-      <div class='flex flex-col gap-6'>
+      <div class='flex flex-col gap-4'>
         <div class='flex flex-col gap-4'>
-          <div>
-            <f-section-line>
-              Informações pessoais
-            </f-section-line>
-            <div class='text-zinc-100 flex flex-col gap-2'>
+          <f-section-line>
+            Informações pessoais
+          </f-section-line>
+          <div class='flex flex-col'>
+            <div class='text-zinc-100 flex flex-col gap-1'>
               <f-label>Nome</f-label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Sexo</f-label>
               <f-input class='block w-full' />
             </div>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Data de nascimento</f-label>
               <f-input
                 id='birth-date-input'
@@ -135,30 +135,28 @@ onMounted(() => {
             </div>
           </div>
         </div>
-        <div class='flex flex-col gap-4'>
-          <div class=''>
-            <f-section-line>
-              Carteira de Habilitação
-            </f-section-line>
-          </div>
+        <div class='flex flex-col gap-6'>
+          <f-section-line>
+            Carteira de Habilitação
+          </f-section-line>
           <div class='flex gap-4 w-full'>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Registro</f-label>
               <f-input
                 class='block w-full'
                 placeholder='xxxxxxxxxxx' />
             </div>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Emissão</f-label>
               <f-input class='block w-full' />
             </div>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Validade</f-label>
               <f-input class='block w-full' />
             </div>
           </div>
           <div class='flex gap-4 w-full'>
-            <div class='text-zinc-100 flex flex-col gap-2 flex-grow'>
+            <div class='text-zinc-100 flex flex-col gap-1 flex-grow'>
               <f-label>Escolha as categorias</f-label>
               <f-select
                 v-model='categories'

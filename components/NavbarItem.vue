@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
 });
 
-const variantClasses: { [key: string]: string } = {
+const variantClasses = {
   primary: 'dark:text-zinc-400 dark:hover:text-zinc-200 dark:hover:bg-zinc-600 dark:active:bg-blue-500 dark:active:text-zinc-50 ' + 
     'text-zinc-500 hover:text-zinc-900 hover:bg-zinc-200 active:bg-zinc-300 active:text-zinc-90',
   danger: 'text-red-700 dark:hover:bg-zinc-600 dark:active:bg-red-300/25 hover:bg-zinc-300 dark:active:text-red-600 active:text-red-600 active:bg-red-300'
@@ -39,6 +39,7 @@ const componentTag = computed(() => {
 
 <template>
   <li
+    v-bind='$attrs'
     :class='rootTagClass'
     class='list-item rounded-md duration-200 cursor-pointer'>
     <component

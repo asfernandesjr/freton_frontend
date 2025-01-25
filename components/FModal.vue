@@ -45,10 +45,10 @@ const cancel = () => {
       <!-- Backdrop -->
       <div
         v-if='show'
-        class='inset-0 absolute bg-black/50 z-50'
+        class='inset-0 absolute bg-black/50 z-50 p-2'
         @click.self='show = false'>
         <!-- Modal/dialog -->
-        <div class='relative overflow-hidden bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-600 border-zinc-400 w-[800px] rounded-lg shadow mx-auto my-8'>
+        <div class='relative overflow-hidden bg-zinc-50 dark:bg-zinc-800 border dark:border-zinc-600 border-zinc-400 w-full sm:w-[800px] rounded-lg shadow mx-auto my-8'>
           <div
             v-if='loading'
             class='absolute bg-black/50 text-zinc-900 dark:text-white h-full w-full'>
