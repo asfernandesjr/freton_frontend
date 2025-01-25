@@ -74,7 +74,7 @@ const toggleSidebar = () => {
         v-show='showSidebar'
         class='inset-0 absolute bg-black/50 z-30'
         @click='toggleSidebar()' />
-      <nav class='z-50 fixed lg:hidden bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-b dark:border-zinc-600 w-full px-2 py-1'>
+      <nav class='top-0 left-0 z-50 fixed lg:hidden bg-zinc-100 border-zinc-400 dark:bg-zinc-800 border-b dark:border-zinc-600 w-full px-2 py-1'>
         <f-button
           variant='secondary'
           class='!p-2 !rounde-lg !border-0'
