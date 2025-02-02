@@ -4,5 +4,5 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/eslint-module'],
   typescript: {
     typeCheck: true,
-  }
+  },
 });

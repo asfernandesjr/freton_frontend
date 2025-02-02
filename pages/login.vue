@@ -16,7 +16,7 @@ const login = async () => {
     <div
       class='mx-auto my-32 px-4 py-6 relative align-middle sm:w-96
       border rounded shadow-lg
-      dark:border-zinc-600 dark:bg-zinc-800
+      dark:border-zinc-700 dark:bg-zinc-800
       border-zinc-400'>
       <div class='dark:text-zinc-400 text-zinc-500 float-right cursor-pointer'>
         <Icon

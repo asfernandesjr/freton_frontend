@@ -85,7 +85,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
     v-click-out='clickOutHandler'
     class='relative border rounded dark:bg-zinc-600
     border-zinc-400 text-zinc-500 duration-150 ease-in-out
-    focus-within:ring-2 focus-within:ring-sky-300 focus-within:border-sky-500'>
+    focus-within:ring-2 focus-within:ring-blue-300 focus-within:border-blue-500'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
         <template

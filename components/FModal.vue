@@ -84,6 +84,10 @@ const cancel = () => {
               @click='cancel()'>
               {{ cancelTitle }}
             </f-button>
+            <f-button
+              variant='danger'>
+              {{ okTitle }}
+            </f-button>
             <f-button @click='ok()'>
               {{ okTitle }}
             </f-button>
