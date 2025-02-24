@@ -83,9 +83,10 @@ const SelectedBadge = ({ text }: { text: string }) => h(
 <template>
   <div
     v-click-out='clickOutHandler'
-    class='relative border rounded dark:bg-zinc-600
-    border-zinc-400 text-zinc-500 duration-150 ease-in-out
-    focus-within:ring-2 focus-within:ring-blue-300 focus-within:border-blue-500'>
+    class='relative border rounded 
+    text-zinc-500 border-zinc-400 focus:text-zinc-900
+    dark:text-zinc-300 dark:bg-zinc-700 dark:border-zinc-600 dark:focus:text-zinc-100
+    ease-in-out focus-within:ring-2 focus-within:ring-blue-300 focus-within:border-blue-500 duration-150'>
     <div class='flex justify-between items-center px-3 py-[0.375rem]'>
       <div class='flex flex-wrap w-full gap-1'>
         <template
@@ -99,7 +100,7 @@ const SelectedBadge = ({ text }: { text: string }) => h(
           v-else-if='modelValue && !Array.isArray(modelValue)'
           :text='modelValue[props.labelKey]' />
         <input
-          class='flex-grow outline-none dark:bg-zinc-600'
+          class='flex-grow outline-none dark:bg-zinc-700'
           @focusin='_showItems = true'>
       </div>
       <button
@@ -110,16 +111,16 @@ const SelectedBadge = ({ text }: { text: string }) => h(
     <div
       :class="_showItems ? 'block' : 'hidden'"
       class='absolute top-full mt-[0.125rem] w-full z-[100]'>
-      <ul class='rounded dark:bg-zinc-600 drop-shadow-lg'>
+      <ul class='mt-1 rounded dark:bg-zinc-600 drop-shadow-lg max-h-60 overflow-y-scroll overflow-hidden'>
         <li
           v-for='item in _items'
           :key='item[props.valueKey]'
           class='px-4 py-1 duration-150 ease-in-out
-          hover:bg-zinc-600 hover:border hover:border-zinc-600
+          hover:bg-zinc-700 hover:border hover:border-zinc-700
           border-y border-y-transparent text-zinc-300
-          border-x dark:border-x-zinc-600
-          first:rounded-t first:border-t-zinc-600
-          last:rounded-b last:border-b-zinc-600'
+          border-x dark:border-x-zinc-700
+          first:rounded-t first:border-t-zinc-700
+          last:rounded-b last:border-b-zinc-700'
           @click='itemClick(item)'>
           {{ item[props.labelKey] }}
         </li>

@@ -87,12 +87,32 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class='flex flex-col gap-6'>
-    <div class='flex justify-between pb-6'>
-      <h4 class='text-3xl font-semibold dark:text-zinc-200'>
+  <div class='flex flex-col gap-4'>
+    <div class='flex flex-col mx-auto max-w-[768px] gap-6 text-center dark:bg-blue-600 bg-blue-700 rounded-2xl py-12 px-32'>
+      <h2 class='text-3xl font-bold text-zinc-900 dark:text-zinc-900 bg-(--ui-primary)'>
+        Celta 2014 - Gasolina
+      </h2>
+      <p class='text-zinc-200 dark:text-zinc-700'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, exercitationem commodi illo, consectetur tempore
+        cum similique quas laborum officia eaque repellendus fugit deserunt nulla laboriosam quidem voluptatibus culpa numquam molestias.
+      </p>
+      <div class='flex justify-center gap-4'>
+        <f-button variant='success'>
+          Relatório
+        </f-button>
+        <f-button variant='secondary'>
+          Detalhes
+        </f-button>
+      </div>
+    </div>
+
+    <div class='flex justify-between flex-wrap md:flex-nowrap gap-2 md:gap-0'>
+      <h4 class='text-2xl font-semibold dark:text-zinc-200'>
         Lista de motoristas
       </h4>
-      <f-button @click='showModal = true'>
+      <f-button
+        class='w-full md:w-auto block md:inline-block'
+        @click='showModal = true'>
         Adicionar motorista
       </f-button>
     </div>
@@ -106,10 +126,11 @@ onMounted(() => {
     </div>
     <f-modal
       v-model='showModal'
-      description='Preencha o formulário com os dados do motorista'
-      ok-title='Registrar motorista'
+      description='Preencha o formulário com os dados do veículo'
+      content-class='overflow-visible'
+      ok-title='Registrar veículo'
       :loading='loading'
-      title='Registrar motorista'
+      title='Registrar veículo'
       @ok='loading = !loading'>
       <div class='flex flex-col gap-4'>
         <div class='flex flex-col gap-4'>

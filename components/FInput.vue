@@ -1,6 +1,5 @@
 <script setup lang='ts'>
 const value = defineModel<any>();
-
 </script>
 
 <template>

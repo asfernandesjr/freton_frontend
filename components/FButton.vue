@@ -10,10 +10,10 @@ const props = withDefaults(defineProps<ComponentProps>(), {
 const variantClasses: Record<ComponentVariants, string> = {
   primary: 'text-zinc-100 border-blue-600 bg-blue-600 ' + 
     'enabled:hover:bg-blue-700 enabled:hover:text-zinc-200 enabled:active:bg-blue-700 enabled:active:ring-blue-400',
-  secondary: 'text-zinc-600 bg-zinc-100 border-zinc-600 hover:bg-zinc-200 ' +
-    'hover:text-zinc-800 active:border-zinc-800 active:text-zinc-600 active:bg-zinc-100 active:ring-zinc-600 ' +
-    'dark:text-zinc-300 dark:bg-zinc-800 dark:border-zinc-300 dark:active:bg-zinc-800 dark:active:text-zinc-100 dark:hover:text-zinc-100 ' +
-    'dark:hover:bg-zinc-700 dark:active:ring-zinc-300',
+  secondary: 'text-zinc-600 bg-transparent border-zinc-600 hover:bg-zinc-200 ' +
+    'hover:text-zinc-100 active:border-zinc-800 active:text-zinc-100 active:bg-zinc-100 active:ring-zinc-600 ' +
+    'dark:text-zinc-300 dark:border-zinc-100 dark:active:bg-zinc-100 dark:active:text-zinc-800 dark:hover:text-zinc-800 ' +
+    'dark:hover:bg-zinc-100 dark:active:ring-zinc-100 dark:active:border-zinc-200',
   danger: 'text-zinc-100 border-red-600 bg-red-600 ' + 
     'enabled:hover:bg-red-700 enabled:hover:text-zinc-200 enabled:active:bg-red-700 enabled:active:ring-red-400',
   success: 'text-zinc-100 border-green-600 bg-green-600 ' + 
