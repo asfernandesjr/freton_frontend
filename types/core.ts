@@ -5,3 +5,5 @@ export type ComponentProps = {
     variant: ComponentVariants,
     size: ComponentSizes
 }
+
+export type UiColors = 'sky' | 'green' | 'red' | 'emerald' | 'blue' | 'yellow' | 'purple' | 'pink' | 'orange' | 'teal' | 'rose';

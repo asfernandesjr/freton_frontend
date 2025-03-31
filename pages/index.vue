@@ -1,5 +1,10 @@
 <script setup lang='ts'>
 import Inputmask from 'inputmask';
+import type { UiColors } from '~/types/core';
+
+const setUiPrimaryColor = inject('setUiPrimaryColor');
+
+const uiColors: UiColors[] = ['sky', 'green', 'red', 'emerald', 'blue', 'yellow', 'purple', 'pink', 'orange', 'teal', 'rose'];
 
 const loading = ref(false);
 const page = ref(3);
@@ -87,8 +92,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class='flex flex-col gap-4'>
+  <div class='flex flex-col gap-4 items-center'>
+    <div class='my-12 grid grid-cols-4 gap-2 w-72 text-xs'>
+      <f-button
+        v-for='color in uiColors'
+        :key='color'
+        class='!py-1 !px-2'
+        variant='secondary'>
+        <div class='flex items-center justify-center gap-2'>
+          <span :class='`bg-${color}-500 rounded-full w-2 h-2`' />
+          <span>{{ color }}</span>
+        </div>
+      </f-button>
+    </div>
     <div class='flex flex-col mx-auto max-w-[768px] gap-6 text-center dark:bg-blue-600 bg-blue-700 rounded-2xl py-12 px-32'>
+      <h2 class='text-3xl font-bold text-zinc-900 dark:text-zinc-900 bg-(--ui-primary)'>
+        Celta 2014 - Gasolina
+      </h2>
+      <p class='text-zinc-200 dark:text-zinc-700'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, exercitationem commodi illo, consectetur tempore
+        cum similique quas laborum officia eaque repellendus fugit deserunt nulla laboriosam quidem voluptatibus culpa numquam molestias.
+      </p>
+      <div class='flex justify-center gap-4'>
+        <f-button variant='success'>
+          Relatório
+        </f-button>
+        <f-button variant='secondary'>
+          Detalhes
+        </f-button>
+      </div>
+    </div>
+
+    <div class='flex flex-col mx-auto max-w-[768px] gap-6 text-center dark:bg-(--ui-primary) bg-(--ui-primary) rounded-2xl py-12 px-32'>
       <h2 class='text-3xl font-bold text-zinc-900 dark:text-zinc-900 bg-(--ui-primary)'>
         Celta 2014 - Gasolina
       </h2>

@@ -17,7 +17,7 @@ const breadcrumbItems = ref([
   <div
     class='flex flex-col min-h-lvh lg:flex-row dark:bg-zinc-900 bg-white'>
     <the-navbar />
-    <div class='flex-1 mt-16 lg:mt-0 ml-0 lg:ml-16 p-4'>
+    <div class='flex-1 mt-16 lg:mt-0 ml-0 lg:ml-16 p-4 flex flex-col items-center'>
       <div class='md:container !p-0'>
         <f-breadcrumb :items='breadcrumbItems' />
       </div>
