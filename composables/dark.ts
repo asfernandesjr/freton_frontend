@@ -1,4 +1,4 @@
-import { useDark } from '@vueuse/core';
+import { useDark, useToggle } from '@vueuse/core';
 
 
 export const useDarkMode = () => {
@@ -13,7 +13,6 @@ export const useDarkMode = () => {
   const toggleDarkMode = () => {
     isDark.value = !isDark.value;
   };
-
 
   return {
     isDark,
