@@ -33,6 +33,10 @@ const ok = () => {
 const cancel = () => {
   emit('cancel');
 };
+
+watch(show, (val) => {
+  document.body.style.overflow = val ? 'hidden' : '';
+});
 </script>
 
 <template>
