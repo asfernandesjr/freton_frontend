@@ -2,9 +2,12 @@
 import { type ComponentProps, type ComponentVariants, type ComponentSizes } from '@/types/core';
 
 
-const props = withDefaults(defineProps<ComponentProps>(), {
+type FButtonProps = { type: 'submit' | 'button' } & ComponentProps
+
+const props = withDefaults(defineProps<FButtonProps>(), {
   variant: 'primary',
   size: 'md',
+  type: 'button',
 });
 
 const variantClasses: Record<ComponentVariants, string> = {
@@ -37,6 +40,7 @@ const computedClass = computed(() => {
 
 <template>
   <button
+    :type='type'
     :class='computedClass'
     class='border disabled:opacity-75 rounded-md duration-150 enabled:active:ring-2 active:outline-none'>
     <slot />

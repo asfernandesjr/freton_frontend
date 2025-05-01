@@ -18,7 +18,7 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class='relative overflow-auto'>
+  <div class='relative overflow-auto w-full'>
     <table
       class='w-full text-left border rounded
         text-zinc-500 border-zinc-400

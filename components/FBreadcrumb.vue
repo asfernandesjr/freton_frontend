@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class='border px-6 py-4 border-zinc-400 dark:border-zinc-500 rounded-t'>
-    <div class='flex items-center gap-2'>
+    <div class='flex items-center gap-1'>
       <div
         v-for='(item, idx) in items'
         :key='item.text'
@@ -27,7 +27,7 @@ withDefaults(defineProps<Props>(), {
         <Icon
           v-if='idx !== items.length - 1'
           name='material-symbols:chevron-right'
-          size='1.25rem'
+          size='1rem'
           class='dark:text-zinc-500' />
       </div>
     </div>
