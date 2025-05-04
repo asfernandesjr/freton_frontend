@@ -4,6 +4,17 @@ const { toggleDarkMode, darkModeSettings } = useDarkMode();
 
 const showSidebar = ref(false);
 
+type TheNavbarProps = {
+  showBackdrop?: boolean,
+  wrapperClass?: string,
+}
+
+const props = withDefaults(defineProps<TheNavbarProps>(), {
+  showBackdrop: true,
+  wrapperClass: 'fixed',
+});
+
+
 const logout = () => {
   console.log('logout');
 };
@@ -19,9 +30,10 @@ const toggleSidebar = () => {
   <!-- the width is defined as the <navbar padding> + <item padding> + <icon width> -->
   <aside
     :class="[
-      showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16'
+      showSidebar ? 'lg:w-64 !translate-x-0' : 'lg:!w-16',
+      props.wrapperClass || '',
     ]"
-    class='z-[100] fixed -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 border-r border-zinc-300 dark:border-r-0 
+    class='z-[100] -translate-x-full lg:translate-x-0 transition-all duration-150 w-64 h-lvh top-0 left-0 border-r border-zinc-300 dark:border-r-0 
       text-zinc-500 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800
       flex flex-col justify-between px-3 py-4 shadow-lg'>
     <div class='overflow-hidden'>
@@ -72,6 +84,7 @@ const toggleSidebar = () => {
     </div>
     <Teleport to='body'>
       <div
+        v-if='props.showBackdrop'
         v-show='showSidebar'
         class='inset-0 absolute bg-black/50 z-30'
         @click='toggleSidebar()' />

@@ -2,7 +2,7 @@
 import { type ComponentProps, type ComponentVariants, type ComponentSizes } from '@/types/core';
 
 
-type FButtonProps = { type: 'submit' | 'button' } & ComponentProps
+type FButtonProps = { type?: 'submit' | 'button' } & ComponentProps
 
 const props = withDefaults(defineProps<FButtonProps>(), {
   variant: 'primary',
